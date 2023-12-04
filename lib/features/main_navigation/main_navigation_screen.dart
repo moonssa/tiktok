@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -28,70 +29,20 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: screens[_selectedIndex],
-        bottomNavigationBar: NavigationBar(
-          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          selectedIndex: _selectedIndex,
-          onDestinationSelected: _onTap,
-          destinations: const [
-            NavigationDestination(
-              icon: FaIcon(
-                FontAwesomeIcons.house,
-                color: Colors.teal,
-              ),
-              label: "Home",
-            ),
-            NavigationDestination(
-              icon: FaIcon(
-                FontAwesomeIcons.magnifyingGlass,
-                color: Colors.amber,
-              ),
-              label: "Search",
-            ),
-          ],
-        )
-        /*
-      BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onTap,
-        elevation: 0,
-        selectedItemColor: Theme.of(context).primaryColor,
-        type: BottomNavigationBarType.shifting,
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
         items: const [
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
+            icon: Icon(CupertinoIcons.house),
             label: "Home",
-            tooltip: "What are you?",
-            backgroundColor: Colors.amber,
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+            icon: Icon(CupertinoIcons.search),
             label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
-            label: "Home",
-            tooltip: "What are you?",
-            backgroundColor: Colors.pink,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.green,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
-            label: "Home",
-            tooltip: "What are you?",
-            backgroundColor: Colors.purple,
           ),
         ],
       ),
-      */
-        );
+      tabBuilder: (context, index) => screens[index],
+    );
   }
 }
