@@ -15,13 +15,6 @@ class _VideoTimelineScrenState extends State<VideoTimelineScren> {
 
   final PageController _pageController = PageController();
 
-  List<Color> colors = [
-    Colors.blue,
-    Colors.red,
-    Colors.yellow,
-    Colors.teal,
-  ];
-
   void __onPageChanged(int page) {
     _pageController.animateToPage(
       page,
@@ -30,12 +23,6 @@ class _VideoTimelineScrenState extends State<VideoTimelineScren> {
     );
     if (page == _itemCount - 1) {
       _itemCount = _itemCount + 4;
-      colors.addAll([
-        Colors.blue,
-        Colors.red,
-        Colors.yellow,
-        Colors.teal,
-      ]);
 
       setState(() {});
     }
@@ -53,7 +40,7 @@ class _VideoTimelineScrenState extends State<VideoTimelineScren> {
       itemCount: _itemCount,
       onPageChanged: __onPageChanged,
       itemBuilder: (context, index) {
-        return VideoPost(onVideoFinished: _onVideoFinished);
+        return VideoPost(onVideoFinished: _onVideoFinished, index: index);
       },
     );
   }
