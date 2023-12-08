@@ -17,7 +17,9 @@ class _VideoCommentsState extends State<VideoComments> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
+      height: size.height * 0.8,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Sizes.size14),
@@ -36,73 +38,104 @@ class _VideoCommentsState extends State<VideoComments> {
             ),
           ],
         ),
-        body: ListView.separated(
-          padding: const EdgeInsets.symmetric(
-            vertical: Sizes.size10,
-            horizontal: Sizes.size16,
-          ),
-          separatorBuilder: (context, index) => Gaps.v40,
-          itemCount: 10,
-          itemBuilder: (context, index) => Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CircleAvatar(
-                radius: 18,
-                child: Text(
-                  "문경",
-                ),
+        body: Stack(
+          children: [
+            ListView.separated(
+              padding: const EdgeInsets.symmetric(
+                vertical: Sizes.size10,
+                horizontal: Sizes.size16,
               ),
-              Gaps.h10,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+              separatorBuilder: (context, index) => Gaps.v40,
+              itemCount: 10,
+              itemBuilder: (context, index) => Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    radius: 18,
+                    child: Text(
                       "문경",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size14,
-                          color: Colors.grey.shade500),
                     ),
-                    Gaps.v3,
-                    const Text(
-                      "That's not ie I've seen the same thing but also i",
+                  ),
+                  Gaps.h10,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "문경",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: Sizes.size14,
+                              color: Colors.grey.shade500),
+                        ),
+                        Gaps.v3,
+                        const Text(
+                          "That's not ie I've seen the same thing but also i",
+                        ),
+                      ],
                     ),
+                  ),
+                  Column(
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.heart,
+                        size: Sizes.size20,
+                        color: Colors.grey.shade500,
+                      ),
+                      Gaps.v5,
+                      Text("52.2K",
+                          style: TextStyle(
+                            color: Colors.grey.shade400,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              width: size.width,
+              child: BottomAppBar(
+                color: const Color.fromRGBO(255, 255, 255, 1),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Sizes.size16,
+                  vertical: Sizes.size10,
+                ),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 18,
+                      backgroundColor: Colors.grey.shade500,
+                      child: const Text(
+                        "문경",
+                      ),
+                    ),
+                    Gaps.h10,
+                    Expanded(
+                      child: TextField(
+                        cursorColor: Theme.of(context).primaryColor,
+                        decoration: InputDecoration(
+                          hintText: "Write a comment...",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              Sizes.size12,
+                            ),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey.shade200,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: Sizes.size12,
+                            vertical: Sizes.size10,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
-              Column(children: [
-                FaIcon(
-                  FontAwesomeIcons.heart,
-                  size: Sizes.size20,
-                  color: Colors.grey.shade500,
-                ),
-                Gaps.v5,
-                Text("52.2K",
-                    style: TextStyle(
-                      color: Colors.grey.shade400,
-                    )),
-              ]),
-            ],
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
-          child: Row(
-            children: [
-              CircleAvatar(
-                radius: 18,
-                backgroundColor: Colors.grey.shade500,
-                child: const Text(
-                  "문경",
-                ),
-              ),
-              Gaps.h10,
-              const Expanded(
-                child: TextField(),
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
