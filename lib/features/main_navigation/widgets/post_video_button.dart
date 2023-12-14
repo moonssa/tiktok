@@ -53,13 +53,13 @@ class PostVideoButton extends StatelessWidget {
             horizontal: Sizes.size8,
           ),
           decoration: BoxDecoration(
-            color: inverted ? Colors.white : Colors.black,
+            color: inverted ? Colors.black : Colors.white,
             borderRadius: BorderRadius.circular(Sizes.size11),
           ),
           child: Center(
             child: FaIcon(
               FontAwesomeIcons.plus,
-              color: inverted ? Colors.black : Colors.white,
+              color: inverted ? Colors.white : Colors.black,
             ),
           ),
         ),
