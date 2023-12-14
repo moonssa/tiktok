@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/constants/sizes.dart';
-import 'package:tiktok/features/inbox/inbox_screen.dart';
+import 'package:tiktok/features/inbox/activity_screen.dart';
 // import 'package:tiktok/features/authentication/sign_up_screen.dart';
-import 'package:tiktok/features/main_navigation/main_navigation_screen.dart';
 // import 'package:tiktok/features/onboarding/interests_screen.dart';
 
 void main() {
@@ -35,7 +34,7 @@ class TikTokApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const InboxScreen(),
+      home: const ActivityScreen(),
       // home: const InterestScreen(),
     );
   }
