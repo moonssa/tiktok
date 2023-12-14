@@ -51,13 +51,21 @@ class DiscoverScreen extends StatelessWidget {
               ),
               itemBuilder: (context, index) => Column(
                 children: [
-                  AspectRatio(
-                    aspectRatio: 9 / 16,
-                    child: FadeInImage.assetNetwork(
-                      fit: BoxFit.cover,
-                      placeholder: "assets/images/paris.jpg",
-                      image:
-                          "https://cdn.pixabay.com/photo/2019/11/25/12/58/christmas-4651978_1280.jpg",
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size6,
+                      ),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: 9 / 16,
+                      child: FadeInImage.assetNetwork(
+                        fit: BoxFit.cover,
+                        placeholder: "assets/images/paris.jpg",
+                        image:
+                            "https://cdn.pixabay.com/photo/2019/11/25/12/58/christmas-4651978_1280.jpg",
+                      ),
                     ),
                   ),
                   Gaps.v10,
